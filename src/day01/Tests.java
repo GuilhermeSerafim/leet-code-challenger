@@ -8,7 +8,6 @@ public class Tests {
         if (start < 0) {
             start = (start % arr.length + arr.length) % arr.length; // normaliza negativos
         } else if (start >= arr.length) {
-            // 12 / 10 = %2, 2 == 30
             start = start % arr.length; // normaliza maiores que o tamanho
         }
 
@@ -17,4 +16,6 @@ public class Tests {
             System.out.println("Índice " + index + " valor " + arr[index]);
         }
     }
+
+
 }
