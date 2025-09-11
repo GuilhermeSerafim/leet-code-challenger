@@ -1,5 +1,7 @@
 package day01;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class TwoSum {
@@ -7,30 +9,44 @@ public class TwoSum {
         Scanner in = new Scanner(System.in);
         System.out.print("Arr Lenght: ");
         int x = in.nextInt();
-        int[] sums = new int[x];
-        for (int i = 0; i < sums.length; i++) {
+        int[] nums = new int[x];
+        for (int i = 0; i < nums.length; i++) {
             System.out.print("Num: ");
-            sums[i] = in.nextInt();
+            nums[i] = in.nextInt();
         }
         System.out.print("Target: ");
         int target = in.nextInt();
-        int[] results = twoSum(sums, target);
+        int[] results = twoSum2(nums, target);
         if(results == null) System.out.println("Alvo não encontrado");
         else System.out.println("[" + results[0] + "," + results[1] + "]");
         in.close();
     }
 
-    public static int[] twoSum(int[] sums, int target) {
-        int start;
-        for (int i = 0; i < sums.length; i++) {
-            start = sums[i];
-            if (start < 0) start = (start % sums.length + sums.length) % sums.length;
-            else if (start >= sums.length) start = start % sums.length;
-            for (int j = 1; j < sums.length; j++) {
-                int index = (start + j) % sums.length;
-                if(sums[index] + sums[j] == target) return new int[] {index, j};
+    public static int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if(nums[i] + nums[j] == target) return new int[] {i, j};
             }
         }
-        return null;
+        throw new IllegalArgumentException("Nenhuma solução encontrada");
     }
+
+    // Complexidade O(1)
+    public static int[] twoSum2(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    
+    for (int i = 0; i < nums.length; i++) {
+        int complemento = target - nums[i];
+        
+        // Verifica se o complemento já está no mapa
+        if (map.containsKey(complemento)) {
+            return new int[] {map.get(complemento), i};
+        }
+        
+        // Se não, adiciona o número atual e seu índice
+        map.put(nums[i], i);
+    }
+    
+    throw new IllegalArgumentException("Nenhuma solução encontrada");
+}
 }
