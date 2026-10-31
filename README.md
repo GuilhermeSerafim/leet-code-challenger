@@ -1,3 +1,15 @@
+# Prática de algoritmos em Java
+
+Repositório de desafios de programação em Java. Há exercícios apenas em `src/day01`.
+
+## Conteúdo
+
+- `ContainsDuplicate.java` e `ValidAnagram.java`: arquivos de exercícios sobre duplicatas e anagramas.
+- `TwoSum.java`: entrada pelo console e duas implementações de busca de pares, uma com laços aninhados e outra com `HashMap`.
+- `Tests.java`: programa demonstrativo que imprime posições de um array; não é uma suíte de asserções automatizadas.
+
+Não há configuração Maven/Gradle. O arquivo `.vscode/settings.json` define origem `src`, saída `bin` e bibliotecas em `lib/**/*.jar`, sem fixar a versão do JDK.
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
